@@ -1,17 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <t-form-item>
+      <t-input placeholder='请输入' v-model="value"></t-input>
+      {{value}}
+    </t-form-item>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TInput from './components/t-input.vue'
+import TFormItem from './components/t-form-item.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      value: 'qwe'
+    }
+  },
   components: {
-    HelloWorld
+    TFormItem,
+    TInput
   }
 }
 </script>
