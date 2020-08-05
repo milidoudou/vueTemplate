@@ -6,6 +6,9 @@
 
 <script>
 export default {
+  provide() {
+    return this
+  },
   data() {
     return {}
   },

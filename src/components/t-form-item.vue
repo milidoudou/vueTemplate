@@ -8,6 +8,7 @@
 import Schema from 'async-validate'
 
 export default {
+  inject: ['form'],
   props: {
     label: {
       type: String,
@@ -23,7 +24,7 @@ export default {
   },
   methods: {
     validate() {
-      const 
+      // const 
     }
   }
 }
