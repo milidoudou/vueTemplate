@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "async-validate": "^1.0.1",
+    "async-validator": "^3.4.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },

@@ -6,8 +6,20 @@
 
 <script>
 export default {
+  props: {
+    model: {
+      type: Object,
+      default: () => {}
+    },
+    rules: {
+      type: Object,
+      default: () => {}
+    }
+  },
   provide() {
-    return this
+    return {
+      form: this
+    }
   },
   data() {
     return {}

@@ -19,6 +19,7 @@ export default {
   methods: {
     handleInput(e) {
       this.$emit('input', e.target.value)
+      this.$parent.$emit('input',  e.target.value)
     }
   }
 }

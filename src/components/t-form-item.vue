@@ -1,13 +1,14 @@
 <template>
   <div>
-    <slot></slot>
+    {{label}} <slot></slot>
   </div>
 </template>
 
 <script>
-import Schema from 'async-validate'
+import Schema from 'async-validator'
 
 export default {
+  name: 't-form-item',
   inject: ['form'],
   props: {
     label: {
@@ -22,9 +23,36 @@ export default {
   data() {
     return {}
   },
+  mounted() {
+    this.$on('input', (e) => {
+      this.validate(e)
+    })
+  }, 
   methods: {
-    validate() {
-      // const 
+    async validate(e) {
+      
+      const descriptor  = {
+        [this.prop]: this.form.rules[this.prop]
+      }
+      const validator = new Schema(descriptor)
+      try {
+        await  validator.validate({
+          [this.prop]: e
+        })
+      } catch ({errors, fileds}) {
+        // console.log('error', error)
+        console.log('errors', errors, fileds)
+      }
+      
+
+      validator.validate({
+        [this.prop]: e
+      }).then((success) => {
+        console.log('success', success)
+      }).catch(({errors, fileds}) => {
+        console.log('errors', errors, fileds)
+      })
+
     }
   }
 }
